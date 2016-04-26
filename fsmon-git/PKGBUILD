@@ -1,7 +1,7 @@
 # Maintainer: liara <liara at archlinux.info>
 
 pkgname=fsmon-git
-pkgver=1.0.r0.g98e718b
+pkgver=1.1.r9.g6a26e39
 pkgrel=1
 pkgdesc="FileSystem Monitor utility."
 arch=('i686' 'x86_64')
