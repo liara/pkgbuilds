@@ -1,0 +1,23 @@
+# Maintainer: liara <liara at archlinux.info>
+
+pkgname=python-cymruwhois
+pkgver=1.5
+pkgrel=1
+pkgdesc="Client for the whois.cymru.com service"
+url="https://github.com/JustinAzoff/python-cymruwhois"
+license=('MIT')
+arch=('any')
+depends=('')
+makedepends=('python')
+source=(https://github.com/JustinAzoff/python-cymruwhois/archive/${pkgver}.tar.gz)
+md5sums=('96832b76a384ea7004e6838dc11782fe')
+
+build() {
+  cd "$srcdir/python-cymruwhois-${pkgver}"
+  python setup.py build
+}
+
+package() {
+  cd "$srcdir/python-cymruwhois-${pkgver}/"
+  python setup.py install --root="$pkgdir/" --optimize=1
+}
