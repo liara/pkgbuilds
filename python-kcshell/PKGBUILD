@@ -1,0 +1,28 @@
+# @liara
+
+pkgname=python-kcshell
+pkgver=0.0.4
+pkgrel=1
+pkgdesc="Simple Python3 based interactive assembly/disassembly shell for various architectures powered by Keystone/Capstone."
+url="https://github.com/fdiskyou/kcshell"
+depends=('python' 'capstone' 'keystone' )
+makedepends=('python' 'python-setuptools')
+license=('BSD')
+arch=('any')
+source=(https://pypi.python.org/packages/61/ac/5dea167e8b627caa2b62c0028af8516b7608bf05de8358e3036f17e48558/kcshell-${pkgver}.tar.gz)
+md5sums=('99059433f690d46911987bc8f40c1ae8')
+
+prepare() {
+    cd "$srcdir/kcshell-${pkgver}"
+    sed -i 's/keystone-engine/keystone/g' setup.py
+}
+
+build() {
+    cd "$srcdir/kcshell-${pkgver}"
+    python setup.py build
+}
+
+package() {
+    cd "$srcdir/kcshell-${pkgver}"
+    python setup.py install --root="$pkgdir" --optimize=1 
+}
