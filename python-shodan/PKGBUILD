@@ -1,4 +1,4 @@
-# Maintainer: liara (liara at archlinux.email)
+# Maintainer: liara (liara at archlinux.info)
 
 pkgname=python-shodan
 pkgver=1.12.1
